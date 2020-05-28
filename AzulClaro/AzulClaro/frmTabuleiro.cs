@@ -476,37 +476,6 @@ namespace AzulClaro
                 }
             }
 
-            //int[] maisComum = corMaisComum();
-
-            //if (maisComum[1] > 5)
-            //{
-            //    for (int qtd = 5; qtd < 0; qtd--)
-            //    {
-            //        if (azulPorQtd[qtd][maisComum[0]].Count > 0)
-            //        {
-            //            compra.fabrica = azulPorQtd[c.qtd][c.azulejo].First().fabrica;
-            //            compra.tipo = azulPorQtd[c.qtd][c.azulejo].First().tipo;
-            //            compra.azulejo = c.azulejo;
-            //            compra.qtd = c.qtd;
-            //            compra.modelo = c.modelo;
-            //            Jogar();
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            for (int i = 0; i < 5; i++)
-            //            {
-            //                compra.fabrica = azulPorQtd[c.qtd][c.azulejo].First().fabrica;
-            //                compra.tipo = azulPorQtd[c.qtd][c.azulejo].First().tipo;
-            //                compra.azulejo = c.azulejo;
-            //                compra.qtd = c.qtd;
-            //                compra.modelo = c.modelo;
-            //                Jogar();
-            //                return;
-            //            }
-            //        }
-            //    }
-            //}
             if(listaCompraColuna.Count > 0)
             {
                 foreach (Compra c in listaCompraColuna)//Compra comum
@@ -640,6 +609,7 @@ namespace AzulClaro
             int pontos = 1;
             int vizinhos = 0;
             bool conectado = false;
+            bool vaiEncerrar = false;
             int pontosLinha = 0;
 
             for (int i = 0; i < 5; i++)//Checa os pontos na linha
@@ -682,6 +652,7 @@ namespace AzulClaro
                 }
             }
 
+            if (pontos >= 5) { vaiEncerrar = true; }
             conectado = false;
             vizinhos = 0;
             pontosLinha = pontos;
@@ -726,41 +697,18 @@ namespace AzulClaro
                 }
             }
 
-            if (pontos - pontosLinha >= 4) pontos += 10;
+            if (pontos - pontosLinha >= 4) pontos += 7;
+            if (completaCor(linha, coluna)) pontos += 10;
+
+            if (vaiEncerrar){
+                if (!estouNaLideranca())
+                {
+                    pontos = -1;
+                }
+            }
 
             return pontos;
         }//Diz quantos pontos a linha vai fazer
-
-
-        //private void completaCor()
-        //{
-        //    for (int cor = 0; cor < 5; cor++)
-        //    {
-        //        int qtd = 0;
-        //        int linhaModelo = 0;
-        //        for (int l = 0; l < 5; l++)
-        //        {
-        //            if (jogador.tabuleiro.parede[l, checaPos(l, cor)])
-        //            {
-        //                qtd++;
-        //            }
-        //            else { linhaModelo = l; }
-        //        }
-        //        if (qtd == 4)
-        //        {
-        //            cor++;
-        //            linhaModelo = linhaModelo;
-        //            //eu tenho a cor e a linha que falta
-        //        }
-
-
-        //        //bool a0 = parede[0,checaPos(0,cor)];
-        //        //bool a1 = parede[1,checaPos(1,cor)];
-        //        //bool a2 = parede[2,checaPos(2,cor)];
-        //        //bool a3 = parede[3,checaPos(3,cor)];
-        //        //bool a4 = parede[4,checaPos(4,cor)];
-        //    }
-        //}
 
         private bool completaCor(int l, int c)
         {
@@ -984,6 +932,29 @@ namespace AzulClaro
 
                 }
             }
+        }
+
+        /////////////////////////////////////////////////////////////
+
+        private bool estouNaLideranca()
+        {
+            partida.ListarJogadores();
+
+            Jogador maisPontos = null;
+            int maior = 0;
+            foreach (Jogador jogador in partida.jogadores)
+            {
+                if (jogador.pontos > maior)
+                {
+                    maisPontos = jogador;
+                }
+            }
+            if (maisPontos.id == this.jogador.id)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /////////////////////////////////////////////////////////////
