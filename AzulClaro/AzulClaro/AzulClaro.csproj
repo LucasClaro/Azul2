@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B612D001-38F7-4C1D-976C-B6A5384970FF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AzulClaro</RootNamespace>
+    <AssemblyName>AzulClaro</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AzulServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AzulServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Azulejo.cs" />
+    <Compile Include="Centro.cs" />
+    <Compile Include="Compra.cs" />
+    <Compile Include="Fabrica.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCriarPartida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCriarPartida.Designer.cs">
+      <DependentUpon>frmCriarPartida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLobby.Designer.cs">
+      <DependentUpon>frmLobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTabuleiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTabuleiro.Designer.cs">
+      <DependentUpon>frmTabuleiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jogador.cs" />
+    <Compile Include="Partida.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tabuleiro.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCriarPartida.resx">
+      <DependentUpon>frmCriarPartida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLobby.resx">
+      <DependentUpon>frmLobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTabuleiro.resx">
+      <DependentUpon>frmTabuleiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f5.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fabrica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f7.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f9.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200307_220440.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200307_223706.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200307_232254.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200308_000257.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200308_003224.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marcaUm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotpict_20200307_2237061.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oxanium-Regular.ttf" />
+    <None Include="Resources\parede.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refrescar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn1Alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn2Alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn3Alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\criar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fundo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCancelarAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCriar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCriarAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cherno.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
